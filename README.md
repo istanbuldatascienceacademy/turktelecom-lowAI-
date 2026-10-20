@@ -15,3 +15,8 @@ const kayitlar = [
   ["Trabzon Ortahisar", "Fiber hattım günde birkaç kez kopup geliyor."]
 ];
 return kayitlar.map(([bolge, aciklama]) => ({ json: { body: { bolge, aciklama } } }));
+
+
+son çözüm
+
+[Net.ServicePointManager]::SecurityProtocol = "Tls12"; $json = @{ bolge = "Ankara Çankaya"; aciklama = "Fiber internetim kesik, modemde LOS ışığı kırmızı." } | ConvertTo-Json; Invoke-RestMethod -Method Post -Uri "https://ADINIZ.app.n8n.cloud/webhook-test/ariza" -ContentType "application/json; charset=utf-8" -Body ([Text.Encoding]::UTF8.GetBytes($json)) -UseBasicParsing
