@@ -1,2 +1,1 @@
-$body = @{ bolge = "Ankara Çankaya"; aciklama = "Dünden beri fiber internetim tamamen kesik, modemde LOS ışığı kırmızı yanıyor." } | ConvertTo-Json
-Invoke-RestMethod -Uri "http://localhost:5678/webhook-test/ariza" -Method Post -ContentType "application/json; charset=utf-8" -Body ([System.Text.Encoding]::UTF8.GetBytes($body))
+[Net.ServicePointManager]::SecurityProtocol = "Tls12"; Invoke-RestMethod -Method Post -Uri "https://ipke.app.n8n.cloud/webhook-test/ariza" -ContentType "application/json; charset=utf-8" -UseBasicParsing -Body ([Text.Encoding]::UTF8.GetBytes('{"bolge":"Ankara Çankaya","aciklama":"Dünden beri fiber internetim tamamen kesik, modemde LOS ışığı kırmızı yanıyor."}'))
